@@ -1,0 +1,36 @@
+package com.david;
+
+import java.util.Scanner;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter a fibonacci number index to count to: ");
+        double answer = scanner.nextDouble();
+        int location = (int)answer;
+        if ( location <= 0 ){
+            System.out.println("An index must be a positive number !");
+        } else {
+            if ( location == 1){
+                System.out.println("The 1st fibonacci number is: 1");
+                return;
+            }
+            if ( location == 2){
+                System.out.println("The 2nd fibonacci number is: 1");
+                return;
+            }
+            if ( location == 3){
+                System.out.println("The 3rd fibonacci number is: 2");
+                return;
+            }
+            int a = 3;
+            int b = 5;
+            for ( int i = 4 ; i < location ; i++ ) {
+                int temp = ( a + b );
+                a = b;
+                b = temp;
+            }
+            System.out.println("The " + location + "th fibonacci number is: " + a );
+        }
+    }
+}
