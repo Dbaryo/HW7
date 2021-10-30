@@ -1,0 +1,40 @@
+package com.david;
+
+import java.util.Scanner;
+
+public class UnVote {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int voteFor = 0;
+        int voteAgainst = 0;
+        int voteAbstain = 0;
+        int vote = 0;
+        for ( int i = 1 ; i <= 10 ; ++i ) {
+            System.out.println("Please enter the countries vote: ");
+            vote = scanner.nextInt();
+            if (vote == 4) {
+                System.out.println("The vote was VETOED by country number " + i);
+                break;
+            } else if (vote == 1) {
+                voteFor++;
+            } else if (vote == 2) {
+                voteAgainst++;
+            } else
+                voteAbstain++;
+                }
+        if ( vote != 4 ) {
+            System.out.println("The results of the vote are as followed: ");
+            System.out.println(voteFor + " votes FOR.");
+            System.out.println(voteAgainst + " votes AGAINST.");
+            System.out.println(voteAbstain + " votes ABSTAIN");
+            if ( voteFor > voteAgainst ) {
+                System.out.println("The vote is PASSED by " + (voteFor-voteAgainst) + " votes.");
+            } else if ( voteFor < voteAgainst ) {
+                System.out.println("The vote is REJECTED by " + (voteAgainst-voteFor) + " votes");
+            } else {
+                System.out.println("The vote is UNCONCLUSIVE");
+            }
+        }
+    }
+}
